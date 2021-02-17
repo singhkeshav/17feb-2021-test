@@ -1,0 +1,61 @@
+
+
+
+<mat-toolbar>
+	<span>Notes</span>
+	<span class="example-spacer"></span>
+	<button mat-icon-button class="example-icon" (click)="logout()">
+		<!-- <mat-icon>favorite</mat-icon> -->
+		Logout
+	</button>
+
+
+</mat-toolbar>
+<form #f="ngForm" novalidate name="form" >
+<mat-dialog-content class="mat-typography">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-5 vertical-line">
+				<ng-container *ngFor="let item of todoList | async;">
+					<ng-container *ngIf="item.title!='' && item.body!=''">
+						<div class="card"  >
+							<div class="card-body">
+								<h5 class="card-title">{{item['title']}}</h5>
+		
+								<p class="card-text">{{item['body']}}</p>
+							   
+								<span class="example-spacer"></span>
+								<mat-icon (click)="editItem(item)" class="btn icon-cust icon-edit"> edit</mat-icon>
+								<mat-icon (click)="deleteItem(item.id)" class="btn icon-cust icon-remove">delete</mat-icon>
+							</div>
+						  </div>
+					</ng-container>
+					
+				</ng-container>
+			
+			</div>
+			<div class="col-lg-7">
+				
+					<div class="form-group">
+						<label for="exampleFormControlInput1">Title Name <span class="required">*</span></label>
+						<input required #title="ngModel" [ngModelOptions]="{standalone: true}" type="text" class="form-control" id="exampleFormControlInput1" [(ngModel)]="inputValue.title" name="title" placeholder="">
+						<div *ngIf="inputValue.title=='' && isSubmit" 
+						class="message-text"  >
+					 Title is required
+				   </div>
+					</div>
+
+					<div class="form-group">
+						<label for="exampleFormControlTextarea1">Body <span class="required">*</span></label>
+						<textarea name="body" required #body="ngModel"  [ngModelOptions]="{standalone: true}" class="form-control" id="exampleFormControlTextarea1" rows="3" [(ngModel)]="inputValue.body"></textarea>
+						<div *ngIf="inputValue.body=='' && isSubmit"  class="message-text">body is required</div>
+					</div>
+			</div>
+		</div>
+	</div>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+	<button mat-button (click)="addNewItem()" *ngIf="!editValue"  >Add </button>
+		<button mat-button (click)="saveNewItem()" *ngIf="editValue" >Save</button></mat-dialog-actions>
+
+	</form>

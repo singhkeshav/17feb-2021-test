@@ -1,0 +1,71 @@
+
+.logout{
+    margin-left: 80%;
+}
+
+.todocard{
+    width: 70%;
+    text-align: center;
+    margin-left: 15%;
+}
+
+.line{
+    border-bottom: 1px solid black;
+    position: absolute;
+    }
+
+    mat-toolbar{
+        border-bottom: 1px solid black  !important;
+        background-color: white;
+   }
+
+   .example-spacer {
+    flex: 1 1 auto;
+  }
+  .example-icon{
+      color: #cf2525;
+      border:1px solid #cf2525;
+  }
+
+  .mat-icon-button {
+    /* padding: 0; */
+    padding: unset;
+    min-width: 0;
+    width: 71px;
+    height: 40px;
+    flex-shrink: 0;
+    line-height: 40px;
+     border-radius: unset;
+}
+
+.vertical-line{
+    border-right: 1px solid #333;
+
+}
+
+.mat-dialog-content{
+    margin-top: 6px;
+}
+
+.required{
+    color: #cf2525;
+}
+
+.icon-cust{
+    float: right;
+    margin-top: -93px;
+    position: relative;
+    margin-left: 2px;
+}
+
+.icon-remove{
+    margin-right: 17px;
+}
+.icon-edit{
+    margin-right: 37px;
+
+}
+
+.message-text{
+    color: red;
+}
